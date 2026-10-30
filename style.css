@@ -1,0 +1,141 @@
+/* ==========================================
+   Pixel & Coffee - Thème rétro-gaming néon
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600&display=swap');
+
+:root {
+    --bg: #0d0b1e;
+    --bg-card: #1a1638;
+    --violet: #9d4edd;
+    --cyan: #00f5d4;
+    --rose: #ff3d9a;
+    --texte: #e8e6f5;
+    --police-titre: 'Press Start 2P', 'Courier New', monospace;
+    --police-texte: 'Nunito', Arial, sans-serif;
+}
+
+/* ---------- Reset de base ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+    /* Effet grille rétro */
+    background-image:
+        linear-gradient(rgba(157, 78, 221, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(157, 78, 221, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: var(--texte);
+    font-family: var(--police-texte);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* ---------- En-tête ---------- */
+header {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    background: linear-gradient(180deg, rgba(157, 78, 221, 0.25), transparent);
+}
+
+h1 {
+    font-family: var(--police-titre);
+    font-size: clamp(1.1rem, 3.5vw, 2rem);
+    line-height: 1.6;
+    color: var(--cyan);
+    text-shadow:
+        0 0 8px var(--cyan),
+        0 0 20px var(--violet),
+        3px 3px 0 var(--rose);
+    letter-spacing: 1px;
+}
+
+/* ---------- Navigation ---------- */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    border-top: 2px solid var(--violet);
+    border-bottom: 2px solid var(--violet);
+    background-color: rgba(13, 11, 30, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    font-family: var(--police-titre);
+    font-size: 0.7rem;
+    text-decoration: none;
+    color: var(--texte);
+    padding: 0.8rem 1.2rem;
+    border: 2px solid var(--cyan);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: var(--cyan);
+    color: var(--bg);
+    box-shadow: 0 0 15px var(--cyan);
+    transform: translateY(-3px);
+}
+
+/* ---------- Contenu principal ---------- */
+p {
+    max-width: 800px;
+    margin: 2.5rem auto;
+    padding: 2rem;
+    background-color: var(--bg-card);
+    border-left: 5px solid var(--rose);
+    border-radius: 6px;
+    box-shadow: 0 0 25px rgba(157, 78, 221, 0.35);
+    white-space: pre-line; /* garde les retours à la ligne du HTML */
+}
+
+/* ---------- Pied de page ---------- */
+footer {
+    margin-top: auto;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 2px solid var(--violet);
+    background-color: rgba(13, 11, 30, 0.9);
+}
+
+footer:empty {
+    padding: 1rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    header {
+        padding: 2rem 1rem 1.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    p {
+        margin: 1.5rem 1rem;
+        padding: 1.2rem;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,167 @@
+/* ==========================================
+   Pixel & Coffee - Page Jeux & Tarifs
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+    --bg: #0d0b1e;
+    --bg-card: #1a1638;
+    --violet: #9d4edd;
+    --cyan: #00f5d4;
+    --rose: #ff3d9a;
+    --texte: #e8e6f5;
+    --police-titre: 'Press Start 2P', 'Courier New', monospace;
+    --police-texte: 'Nunito', Arial, sans-serif;
+}
+
+/* ---------- Reset de base ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg);
+    background-image:
+        linear-gradient(rgba(157, 78, 221, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(157, 78, 221, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: var(--texte);
+    font-family: var(--police-texte);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* ---------- Titre ---------- */
+h1 {
+    width: 100%;
+    padding: 3rem 1rem 2rem;
+    text-align: center;
+    font-family: var(--police-titre);
+    font-size: clamp(1rem, 3vw, 1.7rem);
+    line-height: 1.7;
+    color: var(--cyan);
+    text-shadow:
+        0 0 8px var(--cyan),
+        0 0 20px var(--violet),
+        3px 3px 0 var(--rose);
+    background: linear-gradient(180deg, rgba(157, 78, 221, 0.25), transparent);
+}
+
+/* ---------- Paragraphes (base) ---------- */
+p {
+    width: calc(100% - 2rem);
+    max-width: 700px;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+/* Phrase d'intro : "Les consoles disponibles sont :" */
+h1 + p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--cyan);
+}
+
+/* ---------- Liste des consoles ---------- */
+nav {
+    width: calc(100% - 2rem);
+    max-width: 700px;
+    margin: 1rem 0 2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+nav li {
+    padding: 1.2rem 0.5rem;
+    text-align: center;
+    font-family: var(--police-titre);
+    font-size: 0.7rem;
+    line-height: 1.6;
+    background-color: var(--bg-card);
+    border: 2px solid var(--cyan);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+nav li:hover {
+    background-color: var(--cyan);
+    color: var(--bg);
+    box-shadow: 0 0 18px var(--cyan);
+    transform: translateY(-4px);
+}
+
+/* ---------- Titre "TARIFS:" ---------- */
+nav + p {
+    margin-top: 1rem;
+    padding-bottom: 0.8rem;
+    font-family: var(--police-titre);
+    font-size: 1.1rem;
+    color: var(--rose);
+    text-shadow: 0 0 10px var(--rose);
+    border-bottom: 2px dashed var(--violet);
+}
+
+/* ---------- Lignes de tarifs ---------- */
+nav + p ~ p {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-weight: 700;
+    background-color: var(--bg-card);
+    border-left: 5px solid var(--rose);
+    border-radius: 6px;
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+nav + p ~ p:hover {
+    transform: translateX(8px);
+    box-shadow: 0 0 20px rgba(0, 245, 212, 0.5);
+    border-left-color: var(--cyan);
+}
+
+/* ---------- Pied de page ---------- */
+footer {
+    width: 100%;
+    margin-top: auto;
+    padding: 1.5rem;
+    text-align: center;
+    font-family: var(--police-titre);
+    font-size: 0.7rem;
+    color: var(--violet);
+    border-top: 2px solid var(--violet);
+    background-color: rgba(13, 11, 30, 0.9);
+}
+
+/* Espace entre le dernier tarif et le footer */
+nav + p ~ p:last-of-type {
+    margin-bottom: 3rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    h1 {
+        padding: 2rem 1rem 1.5rem;
+    }
+
+    nav ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav + p ~ p {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+}
