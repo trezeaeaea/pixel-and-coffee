@@ -1,0 +1,158 @@
+/* ==========================================
+   Pixel & Coffee - Page Menu / Bar & Snacks
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+    --bg: #0d0b1e;
+    --bg-card: #1a1638;
+    --bg-ligne: rgba(13, 11, 30, 0.6);
+    --violet: #9d4edd;
+    --cyan: #00f5d4;
+    --rose: #ff3d9a;
+    --texte: #e8e6f5;
+    --police-titre: 'Press Start 2P', 'Courier New', monospace;
+    --police-texte: 'Nunito', Arial, sans-serif;
+}
+
+/* ---------- Reset de base ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg);
+    background-image:
+        linear-gradient(rgba(157, 78, 221, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(157, 78, 221, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: var(--texte);
+    font-family: var(--police-texte);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* ---------- En-tête ---------- */
+header {
+    width: 100%;
+    padding: 3rem 1rem 2rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(157, 78, 221, 0.25), transparent);
+}
+
+h1 {
+    font-family: var(--police-titre);
+    font-size: clamp(1rem, 3vw, 1.7rem);
+    line-height: 1.7;
+    color: var(--cyan);
+    text-shadow:
+        0 0 8px var(--cyan),
+        0 0 20px var(--violet),
+        3px 3px 0 var(--rose);
+}
+
+/* ---------- Phrase d'accroche ---------- */
+header + p {
+    width: calc(100% - 2rem);
+    max-width: 700px;
+    margin: 1rem 0 2rem;
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--cyan);
+    border-top: 2px dashed var(--violet);
+    border-bottom: 2px dashed var(--violet);
+}
+
+/* ==========================================
+   Sections de la carte
+   ========================================== */
+section {
+    --accent: var(--rose);
+    width: calc(100% - 2rem);
+    max-width: 700px;
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background-color: var(--bg-card);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    box-shadow:
+        0 0 20px rgba(157, 78, 221, 0.35),
+        inset 0 0 30px rgba(157, 78, 221, 0.1);
+}
+
+.boissons { --accent: var(--rose); }
+.snacks   { --accent: var(--cyan); }
+
+/* Titre de section */
+section h2 {
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    text-align: center;
+    font-family: var(--police-titre);
+    font-size: 0.9rem;
+    font-weight: normal;
+    line-height: 1.7;
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent);
+    border-bottom: 2px dashed var(--violet);
+}
+
+/* Produits de la carte */
+section p {
+    margin: 0.6rem 0;
+    padding: 0.9rem 1.3rem;
+    font-weight: 700;
+    background-color: var(--bg-ligne);
+    border-left: 5px solid var(--accent);
+    border-radius: 6px;
+    box-shadow: 0 0 12px rgba(157, 78, 221, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+section p:hover {
+    transform: translateX(8px);
+    border-left-color: var(--violet);
+    box-shadow: 0 0 20px rgba(0, 245, 212, 0.5);
+}
+
+/* ---------- Pied de page ---------- */
+footer {
+    width: 100%;
+    margin-top: auto;
+    padding: 1.5rem;
+    text-align: center;
+    font-family: var(--police-titre);
+    font-size: 0.7rem;
+    color: var(--violet);
+    border-top: 2px solid var(--violet);
+    background-color: rgba(13, 11, 30, 0.9);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    header {
+        padding: 2rem 1rem 1.5rem;
+    }
+
+    section {
+        padding: 1.2rem;
+    }
+
+    section h2 {
+        font-size: 0.75rem;
+    }
+
+    section p {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+}

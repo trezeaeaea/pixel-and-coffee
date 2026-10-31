@@ -1,12 +1,14 @@
 /* ==========================================
    Pixel & Coffee - Thème rétro-gaming néon
+   Page d'accueil
    ========================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700&display=swap');
 
 :root {
     --bg: #0d0b1e;
     --bg-card: #1a1638;
+    --bg-ligne: rgba(13, 11, 30, 0.6);
     --violet: #9d4edd;
     --cyan: #00f5d4;
     --rose: #ff3d9a;
@@ -95,9 +97,10 @@ nav a:focus {
     transform: translateY(-3px);
 }
 
-/* ---------- Contenu principal ---------- */
-p {
-    max-width: 800px;
+/* ---------- Texte de présentation ---------- */
+body > p {
+    width: calc(100% - 2rem);
+    max-width: 900px;
     margin: 2.5rem auto;
     padding: 2rem;
     background-color: var(--bg-card);
@@ -107,18 +110,132 @@ p {
     white-space: pre-line; /* garde les retours à la ligne du HTML */
 }
 
+/* ==========================================
+   Sections (cartes néon)
+   Chaque bloc a sa couleur d'accent : --accent
+   ========================================== */
+section {
+    --accent: var(--cyan);
+    width: calc(100% - 2rem);
+    max-width: 900px;
+    margin: 1rem auto 2.5rem;
+    padding: 2rem;
+    background-color: var(--bg-card);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    box-shadow:
+        0 0 20px rgba(157, 78, 221, 0.35),
+        inset 0 0 30px rgba(157, 78, 221, 0.1);
+}
+
+.mon-bloc  { --accent: var(--rose); }
+.mon-bloc2 { --accent: var(--cyan); }
+.mon-bloc3 { --accent: var(--violet); }
+
+/* Titres dans les sections */
+section h1 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(0.95rem, 2.5vw, 1.4rem);
+    text-align: center;
+}
+
+section h2 {
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.8rem;
+    text-align: center;
+    font-family: var(--police-titre);
+    font-size: 0.9rem;
+    font-weight: normal;
+    line-height: 1.7;
+    color: var(--cyan);
+    text-shadow: 0 0 10px var(--cyan);
+    border-bottom: 2px dashed var(--violet);
+}
+
+section h1 + h2,
+section > h2:first-child {
+    margin-top: 0;
+}
+
+section h3 {
+    margin: 1.5rem 0 0.6rem;
+    font-family: var(--police-titre);
+    font-size: 0.75rem;
+    font-weight: normal;
+    line-height: 1.7;
+    color: var(--rose);
+    text-shadow: 0 0 8px var(--rose);
+}
+
+/* Lignes de contenu dans les sections */
+section p {
+    margin: 0.6rem 0;
+    padding: 0.9rem 1.3rem;
+    background-color: var(--bg-ligne);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+section p:hover {
+    transform: translateX(8px);
+    border-left-color: var(--cyan);
+    box-shadow: 0 0 18px rgba(0, 245, 212, 0.4);
+}
+
+/* ---------- Bloc 1 : Actualités / Tournois ---------- */
+/* Le titre "Actualités / Prochains Tournois" est du texte direct
+   dans la section : on le stylise via la section elle-même */
+.mon-bloc {
+    text-align: center;
+    font-family: var(--police-titre);
+    font-size: clamp(0.8rem, 2.2vw, 1.1rem);
+    line-height: 1.7;
+    color: var(--rose);
+    text-shadow: 0 0 10px var(--rose);
+}
+
+.mon-bloc p {
+    text-align: left;
+    font-family: var(--police-texte);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--texte);
+    text-shadow: none;
+}
+
+.mon-bloc p:first-of-type {
+    margin-top: 1.5rem;
+}
+
+/* ---------- Bloc 3 : Avis des joueurs ---------- */
+.mon-bloc3 p {
+    font-style: italic;
+    border-left-color: var(--violet);
+}
+
+.mon-bloc3 p::before {
+    content: "« ";
+    color: var(--rose);
+    font-weight: 700;
+}
+
+.mon-bloc3 p::after {
+    content: " »";
+    color: var(--rose);
+    font-weight: 700;
+}
+
 /* ---------- Pied de page ---------- */
 footer {
     margin-top: auto;
     padding: 1.5rem;
     text-align: center;
-    font-size: 0.9rem;
+    font-family: var(--police-titre);
+    font-size: 0.7rem;
+    color: var(--violet);
     border-top: 2px solid var(--violet);
     background-color: rgba(13, 11, 30, 0.9);
-}
-
-footer:empty {
-    padding: 1rem;
 }
 
 /* ---------- Responsive ---------- */
@@ -133,9 +250,27 @@ footer:empty {
         text-align: center;
     }
 
-    p {
-        margin: 1.5rem 1rem;
+    body > p {
+        margin: 1.5rem auto;
         padding: 1.2rem;
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 1.2rem;
+    }
+
+    section h2 {
+        font-size: 0.8rem;
+    }
+
+    section h3 {
+        font-size: 0.7rem;
+    }
+
+    section p,
+    .mon-bloc p {
+        padding: 0.8rem 1rem;
         font-size: 1rem;
     }
 }
